@@ -8,7 +8,7 @@ public:
         int left=0,right=0;
         while(right<n){
             freq[s[right]-'a']++;
-            while(freq[0]>0 and freq[1]>0 and freq[2]>0){
+            while(freq[0]>0 && freq[1]>0 && freq[2]>0){
                 subarrays += n-right;
                 freq[s[left]-'a']--;
                 left++;
