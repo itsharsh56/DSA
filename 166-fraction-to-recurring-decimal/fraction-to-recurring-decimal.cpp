@@ -1,6 +1,6 @@
 class Solution {
 public:
-    std::string fractionToDecimal(int numerator, int denominator) {
+    string fractionToDecimal(int numerator, int denominator) {
         if (numerator == 0)
             return "0";        
 
