@@ -2,29 +2,30 @@ class Solution {
 public:
   void moveZeroes(vector<int>& nums) {
       int n = nums.size();
+      int j = -1;
 
-      // Count zeroes
-      int numZeroes = 0;
-      for (int i = 0; i < n; i++) {
-          numZeroes += (nums[i] == 0);
+      // count zeros
+      for(int i = 0;i < n;i++)
+      {
+        if(nums[i] == 0)
+        {
+            j = i;
+            break;
+        }
       }
 
-      // Make all the non-zero elements retain their original order.
-      vector<int> ans;
-      for (int i = 0; i < n; i++) {
-          if (nums[i] != 0) {
-              ans.push_back(nums[i]);
-          }
-      }
+      // if no zeros found
+      if(j == -1) return;
 
-      // Move all zeroes to the end
-      while (numZeroes--) {
-          ans.push_back(0);
-      }
-
-      // Combine the result
-      for (int i = 0; i < n; i++) {
-          nums[i] = ans[i];
+      // start i form j+1
+      for(int i = j + 1; i < n;i++)
+      {
+        //if non-zero element found then swap 
+        if(nums[i] != 0)
+        {
+            swap(nums[i],nums[j]);
+            j++; // update j
+        }
       }
   }
 };
