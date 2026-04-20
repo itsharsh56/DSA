@@ -8,7 +8,7 @@ public:
         int t = n* m;
         int count = 0;
         vector<int> res;
-        while (minir <= maxir && minic <= maxic) {
+        while (count < t) {
             // right
             for (int j = minic; j <= maxic && count < t; j++) {
                 res.push_back(matrix[minir][j]);
