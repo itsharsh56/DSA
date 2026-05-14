@@ -1,0 +1,19 @@
+class Solution {
+public:
+    bool isGood(vector<int>& nums) {
+        int n = nums.size() - 1;
+
+        unordered_map<int, int> mp;
+
+        for (int x : nums) {
+            mp[x]++;
+        }
+
+        for (int i = 1; i < n; i++) {
+            if (mp[i] != 1)
+                return false;
+        }
+
+        return mp[n] == 2;
+    }
+};
