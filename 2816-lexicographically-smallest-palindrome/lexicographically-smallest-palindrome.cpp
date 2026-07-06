@@ -3,20 +3,15 @@ public:
     string makeSmallestPalindrome(string s) {
         int left = 0, right = s.size() - 1;
 
-        while(left <= right)
-        {
-            if(s[left] == s[right])
-            {
-                left++;
-                right--;
+        while (left < right) {
+            if (s[left] != s[right]) {
+                if (s[left] < s[right])
+                    s[right] = s[left];
+                else
+                    s[left] = s[right];
             }
-            else if (s[left] > s[right])
-            {
-                s[left] = s[right];
-            }
-            else {
-                s[right] = s[left];
-            }
+            left++;
+            right--;
         }
         return s;
     }
