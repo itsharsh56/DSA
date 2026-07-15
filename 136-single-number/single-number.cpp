@@ -2,11 +2,24 @@ class Solution {
 public:
     int singleNumber(vector<int>& nums) 
     {   
-        int n=0;
-        for (int i =0;i<nums.size();i++)
+        // int n=0;
+        // for (int i =0;i<nums.size();i++)
+        // {
+        //     n^=nums[i];   
+        // }
+        // return n;
+
+        unordered_map<int,int>freq;
+        for(int i: nums)
         {
-            n^=nums[i];   
+            freq[i]++;
         }
-        return n;
+
+        for(auto i: freq)
+        {
+            if(i.second == 1)
+            return i.first;
+        }
+        return -1;
     }
 };
