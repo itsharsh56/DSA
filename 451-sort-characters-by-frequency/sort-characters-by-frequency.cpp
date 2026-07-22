@@ -8,24 +8,40 @@ public:
         for (int i = 0; i < n; i++) {
             mp[s[i]]++;
         }
+        // M-1 using heap
 
-        priority_queue<pair<int, char>> maxHeap;
+        // priority_queue<pair<int, char>> maxHeap;
 
-        for (auto i : mp) {
-            maxHeap.push({i.second, i.first});
-        }
+        // for (auto i : mp) {
+        //     maxHeap.push({i.second, i.first});
+        // }
 
-        string ans;
+        // string ans;
 
-        while (maxHeap.size() > 0) {
-            int count = maxHeap.top().first;
-            int num = maxHeap.top().second;
+        // while (maxHeap.size() > 0) {
+        //     int count = maxHeap.top().first;
+        //     int num = maxHeap.top().second;
 
-            while (count--) {
-                ans.push_back(num);
+        //     while (count--) {
+        //         ans.push_back(num);
+        //     }
+        //     maxHeap.pop();
+        // }
+        // return ans;
+
+        // M-2 using sort + comparator
+
+        sort(s.begin(), s.end(), [&](char a, char b)
+        {
+            if(mp[a] != mp[b])
+            {
+                return mp[a] > mp[b];
             }
-            maxHeap.pop();
-        }
-        return ans;
+            else 
+            {
+                return a < b;
+            }
+        });
+        return s;
     }
 };
