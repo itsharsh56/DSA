@@ -32,8 +32,8 @@ public:
 
         // M-2 using sort + comparator
         // sort(nums.begin(), nums.end(), [&](int n1, int n2) {
-        //     if (freq[n1] != freq[n2]) {
-        //         return freq[n1] < freq[n2];
+        //     if (mp[n1] != mp[n2]) {
+        //         return mp[n1] < mp[n2];
         //     } else {
         //         return n2 < n1;
         //     }
